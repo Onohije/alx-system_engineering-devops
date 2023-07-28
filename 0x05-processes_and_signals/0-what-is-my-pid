@@ -2,4 +2,3 @@
 #Script that displays its own PID.
 
 echo $$
-
