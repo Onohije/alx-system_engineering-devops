@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Usage: ./1-world_wide_web <domain> <subdomain>
+# Displays information about subdomains
+
+audit() {  # audits domain passed as argument
+	dig $1.$2 +noall +answer > .tmp
+	awk -v var="$1" '{ print "The subdomain " var " is a " $4 " record and points to " $5 }' .tmp
+	rm .tmp
+}
+
+if [ "$#" == 1 ]  # if subdomain is not defined
+then
+	subdomains=("www" "lb-01" "web-01" "web-02")
+	for sub in "${subdomains[@]}"
+	do
+		audit $sub "$1"
+	done
+elif [ "$#" == 2 ]
+then
+	audit "$2" "$1"
+fi
