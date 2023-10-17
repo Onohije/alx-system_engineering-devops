@@ -27,4 +27,8 @@ mysql-server:
         500 http://repo.mysql.com/apt/ubuntu bionic/mysql-5.7 amd64 Packages
 Now install mysql 5.7
 
+<<<<<<< HEAD
 sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7* 
+=======
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7* 
+>>>>>>> bd045bef24c4f22aeccc025c89e289a1485c30d0
