@@ -1,11 +1,3 @@
-# NAT table rules
-# port forwarding with ufw from :8080 to :80
-*nat
-:POSTROUTING ACCEPT [0:0]
--A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
-
-COMMIT
-
 #
 # rules.before
 #
@@ -73,11 +65,11 @@ COMMIT
 
 # allow MULTICAST mDNS for service discovery (be sure the MULTICAST line above
 # is uncommented)
--A ufw-before-input -p udp -d 34.239.250.107 --dport 5353 -j ACCEPT
+-A ufw-before-input -p udp -d 224.0.0.251 --dport 5353 -j ACCEPT
 
 # allow MULTICAST UPnP for service discovery (be sure the MULTICAST line above
 # is uncommented)
--A ufw-before-input -p udp -d 54.210.106.234 --dport 1900 -j ACCEPT
+-A ufw-before-input -p udp -d 239.255.255.250 --dport 1900 -j ACCEPT
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
